@@ -45,6 +45,49 @@ class PointGenerator:
         
         # 남은 데이터를 셔플해서 반환
         return self._combine_and_shuffle(xx_rotated, yy_rotated)
+
+    def generate_heart(self):
+        xlist = []
+        ylist = []
+        # self.data_num 만큼의 점을 생성합니다.
+        a, b, c, d, k = 0.5, 0.2, 0.6, 0.15, 0.53
+        while len(xlist) < self.data_num:
+            x = np.random.uniform(0, 1)
+            y = np.random.uniform(0, 1)
+            xx = (x-c)/b
+            yy = (y-k)/d
+            if xx**2 + (yy - np.sqrt(np.abs(xx)))**2 <= a:
+                xlist.append(x)
+                ylist.append(y)
+        xlist = np.array(xlist)
+        ylist = np.array(ylist)
+        # 내부적으로 점들을 합치고 섞는 함수 사용 (예: self._combine_and_shuffle)
+        return self._combine_and_shuffle(xlist, ylist)
+
+    def generate_I(self):
+        xlist, ylist = [], []
+        while len(xlist) < self.data_num:
+            x, y = np.random.uniform(0, 1), np.random.uniform(0, 1)
+            # 사각형 1, 2, 3 중 하나라도 포함되면 조건 만족
+            if ((0.52 <= x <= 0.68) and (0.65 <= y <= 0.7)) or \
+            ((0.52 <= x <= 0.68) and (0.5 <= y <= 0.55)) or \
+            ((0.57 <= x <= 0.63) and (0.5 <= y <= 0.7)):
+                xlist.append(x)
+                ylist.append(y)
+        return self._combine_and_shuffle(np.array(xlist), np.array(ylist))
+    
+    def generate_Q(self):
+        xlist, ylist = [], []
+        while len(xlist) < self.data_num:
+            x, y = np.random.uniform(0, 1), np.random.uniform(0, 1)
+            # 사각형 1, 2, 3 중 하나라도 포함되면 조건 만족
+            rr = (x-0.6)**2 + (y-0.6)**2
+            xy = x+y
+            yx = y-x
+            if (0.005 <= rr <= 0.015) or ((1.17 <= xy <= 1.23) and (-0.23 <= yx <= -0.07)):
+                xlist.append(x)
+                ylist.append(y)
+        return self._combine_and_shuffle(np.array(xlist), np.array(ylist))
     
 
     def generate_dense_center_box(self):
