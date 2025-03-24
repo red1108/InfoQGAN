@@ -247,8 +247,8 @@ def visualize_output_simple(log_gen_outputs, log_gen_codes, epoch, writer, image
 
 current_time = datetime.now().strftime("%b%d_%H_%M_%S")  # "Aug13_14_12" 형식
 base_name = f'{use_mine}_np{n_qubits}_nl{n_layers}_{data_type}_{current_time}'
-save_dir = f"./runs/{base_name}"
-scalar_save_path = os.path.join(save_dir, f"{base_name}.csv")
+save_dir = f"./2d_runs/{base_name}"
+scalar_save_path = os.path.join(save_dir, f"scalars.csv")
 image_save_dir = os.path.join(save_dir, "images")
 numpy_save_dir = os.path.join(save_dir, "numpy")
 param_save_dir = os.path.join(save_dir, "params")

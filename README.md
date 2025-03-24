@@ -20,10 +20,9 @@ INFOQGAN/
 ├── modules/                        # Folder for model components and utility code
 │   ├── Discriminator.py            # Code for the Discriminator model
 │   ├── MINE.py                     # Code for the Mutual Information Neural Estimator (MINE)
-│   ├── Generator.py           # Code for generating 2D distributions
-│   ├── QGenerator.py                     # Code defining the QGAN model
+│   ├── Generator.py                # Code defining the classical generator model
+│   ├── QGenerator.py               # Code defining the quantum generator model
 │   └── utils.py                    # Collection of utility functions
-├── runs/                           # Folder for storing TensorBoard data and training logs
 ├── savepoints/                     # Folder for saving autoencoder parameters
 ├── visualize/                      # Folder for image generation and visualization code
 │   ├── tmp/                        # Temporary folder for images generated during training (ignored by Git)
