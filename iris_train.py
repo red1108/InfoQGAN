@@ -51,7 +51,7 @@ use_mine = True if train_type == "InfoQGAN" else False
 data_type = "IRIS"
 data_type_rep = 1 # 몇번째 데이터인지
 
-n_qubits = 4
+n_qubits = 5
 n_features = 4
 code_qubits = 1
 
@@ -61,12 +61,12 @@ n_layers = 20
 
 BATCH_SIZE = 16
 SEED = 1
-epoch_num = 300
+epoch_num = 500
 
 G_lr = 0.003
-D_lr = 0.0003
+D_lr = 0.0005
 M_lr = 0.003
-coeff = 0.05
+coeff = 0.04
 
 range_l = 0.15
 range_r = 0.85
@@ -75,20 +75,19 @@ data_legend_num = 3
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Training parameters")
     parser.add_argument("--model_type", choices=['InfoQGAN', 'QGAN'], required=True, help="Model type to use: InfoQGAN or QGAN")
-    parser.add_argument("--data_type", choices=['IRIS', 'WINE'], required=True, help="Data type to use")
     parser.add_argument("--data_type_rep", type=int, default=1, help="Data type number (#1 ~ #5)")
 
-    parser.add_argument("--n_qubits", type=int, default=4, help="Number of qubits")
-    parser.add_argument("--code_qubits", type=int, default=1, help="Number of code qubits")
+    parser.add_argument("--n_qubits", type=int, default=5, help="Number of qubits")
+    parser.add_argument("--code_qubits", type=int, default=2, help="Number of code qubits")
     parser.add_argument("--n_layers", type=int, default=20, help="Number of layers for QGAN")
 
     parser.add_argument("--G_lr", type=float, default=0.003, help="Learning rate for generator")
     parser.add_argument("--M_lr", type=float, default=0.003, help="Learning rate for mine")
     parser.add_argument("--D_lr", type=float, default=0.0003, help="Learning rate for discriminator")
-    parser.add_argument("--coeff", type=float, default=0.05, help="Coefficient value used for InfoQGAN (not used for QGAN)")
+    parser.add_argument("--coeff", type=float, default=0.04, help="Coefficient value used for InfoQGAN (not used for QGAN)")
 
     parser.add_argument("--seed", type=float, default=1.0, help="Seed value range")
-    parser.add_argument("--epochs", type=int, default=300, help="Number of epochs")
+    parser.add_argument("--epochs", type=int, default=500, help="Number of epochs")
     parser.add_argument("--range_l", type=float, default=0.15, help="Embedding range left")
     parser.add_argument("--range_r", type=float, default=0.85, help="Embedding range right")
 
@@ -98,7 +97,7 @@ if __name__ == "__main__":
     
     train_type = args.model_type
     use_mine = (train_type == 'InfoQGAN')
-    data_type = args.data_type
+    data_type = "IRIS"
     data_type_rep = args.data_type_rep
 
     n_qubits = args.n_qubits
@@ -134,17 +133,11 @@ if __name__ == "__main__":
 
 raw_data_df = None
 
-if data_type == "IRIS":
-    csv_file = os.path.join("data/IRIS", f"iris_train_{data_type_rep}.csv")
-    print("Path to dataset files:", csv_file)
-    raw_data_df = pd.read_csv(csv_file)
-    n_features = 4
-    output_qubits = 4
-elif data_type == "WINE":
-    path = kagglehub.dataset_download("yasserh/wine-quality-dataset")
-    print("Path to dataset files:", path)
-    csv_file = os.path.join(path, "WineQT.csv")
-    raw_data_df = pd.read_csv(csv_file)
+csv_file = os.path.join("data/IRIS", f"iris_train_{data_type_rep}.csv")
+print("Path to dataset files:", csv_file)
+raw_data_df = pd.read_csv(csv_file)
+n_features = 4
+output_qubits = 4
 
 # 학습에 사용할 것만 선택
 train_data_df = raw_data_df[["SepalLengthCm", "SepalWidthCm", "PetalLengthCm", "PetalWidthCm"]]

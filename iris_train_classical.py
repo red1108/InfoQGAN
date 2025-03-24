@@ -71,31 +71,30 @@ hidden_dim = 5
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Training parameters")
-    parser.add_argument("--model_type", choices=['InfoGAN', 'GAN'], required=True, help="Model type to use: InfoQGAN or QGAN")
-    parser.add_argument("--data_type", choices=['IRIS', 'WINE'], required=True, help="Data type to use")
+    parser.add_argument("--model_type", choices=['InfoGAN', 'GAN'], required=True, help="Model type to use: InfoGAN or GAN")
     parser.add_argument("--data_type_rep", type=int, default=1, help="Data type number (#1 ~ #5)")
 
-    parser.add_argument("--code_dim", type=int, default=1, help="Dimension of latent code")
+    parser.add_argument("--seed_dim", type=int, default=5, help="Generator seed dimension")
+    parser.add_argument("--code_dim", type=int, default=2, help="Dimension of latent code")
 
     parser.add_argument("--G_lr", type=float, default=0.003, help="Learning rate for generator")
     parser.add_argument("--M_lr", type=float, default=0.003, help="Learning rate for mine")
-    parser.add_argument("--D_lr", type=float, default=0.0003, help="Learning rate for discriminator")
-    parser.add_argument("--coeff", type=float, default=0.05, help="Coefficient value used for InfoQGAN (not used for QGAN)")
+    parser.add_argument("--D_lr", type=float, default=0.0005, help="Learning rate for discriminator")
+    parser.add_argument("--coeff", type=float, default=0.04, help="Coefficient value used for InfoGAN")
 
     parser.add_argument("--seed", type=float, default=1.0, help="Generator seed value range")
-    parser.add_argument("--seed_dim", type=int, default=5, help="Generator seed dimension")
 
-    parser.add_argument("--epochs", type=int, default=300, help="Number of epochs")
+    parser.add_argument("--epochs", type=int, default=500, help="Number of epochs")
     parser.add_argument("--range_l", type=float, default=0.15, help="Embedding range left")
     parser.add_argument("--range_r", type=float, default=0.85, help="Embedding range right")
-    parser.add_argument("--hidden_dim", type=int, default=5, help="Number of epochs")
+    parser.add_argument("--hidden_dim", type=int, default=6, help="Number of hidden units in generator")
     
     args = parser.parse_args()
     ARGS = args
     
     train_type = args.model_type
     use_mine = (train_type == 'InfoGAN')
-    data_type = args.data_type
+    data_type = "IRIS"
     data_type_rep = args.data_type_rep
 
     code_dim = args.code_dim
@@ -127,18 +126,10 @@ if __name__ == "__main__":
 
 raw_data_df = None
 
-if data_type == "IRIS":
-    csv_file = os.path.join("data/IRIS", f"iris_train_{data_type_rep}.csv")
-    print("Path to dataset files:", csv_file)
-    raw_data_df = pd.read_csv(csv_file)
-    n_features = 4
-
-elif data_type == "WINE":
-    path = kagglehub.dataset_download("yasserh/wine-quality-dataset")
-    print("Path to dataset files:", path)
-    csv_file = os.path.join(path, "WineQT.csv")
-    raw_data_df = pd.read_csv(csv_file)
-
+csv_file = os.path.join("data/IRIS", f"iris_train_{data_type_rep}.csv")
+print("Path to dataset files:", csv_file)
+raw_data_df = pd.read_csv(csv_file)
+n_features = 4
 
 # 학습에 사용할 것만 선택
 train_data_df = raw_data_df[["SepalLengthCm", "SepalWidthCm", "PetalLengthCm", "PetalWidthCm"]]

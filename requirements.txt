@@ -12,5 +12,3 @@ nbformat        # Library for handling notebook file format, used in reading and
 nbconvert       # Converts Jupyter Notebooks to different formats like HTML, PDF for sharing or documentation
 seaborn
 scikit-learn
-kagglehub
-pennylane-qiskit
