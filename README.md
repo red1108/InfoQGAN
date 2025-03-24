@@ -47,12 +47,26 @@ pip install -r requirements.txt
 ```
 
 ### How to Run
-If you want to train with InfoQGAN:
+If you want to train for 2D dataset (please make `2d_runs` folder before you run):
 ```bash
-python mnist_train.py --model_type InfoQGAN --DIGITS_STR 0123456789 --DIGIT 1 --G_lr 0.01 --M_lr 0.0001 --D_lr 0.001 --coeff 0.05 --epochs 300 --latent_dim 16 --num_images_per_class 2000
+python 2d_train.py --model_type InfoQGAN
 ```
 
-If you want to train with QGAN:
+or
+
 ```bash
-python mnist_train.py --model_type QGAN --DIGITS_STR 0123456789 --DIGIT 1 --G_lr 0.01 --M_lr 0.0001 --D_lr 0.001 --coeff 0.05 --epochs 300 --latent_dim 16 --num_images_per_class 2000
+python 2d_train_classical.py --model_type InfoGAN
+```
+
+
+
+If you want to train with IRIS (please make `iris_runs` folder before you run):
+```bash
+python iris_train.py --model_type InfoQGAN
+```
+
+or
+
+```bash
+python iris_train_classical.py --model_type InfoGAN
 ```

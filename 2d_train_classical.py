@@ -56,21 +56,21 @@ hidden_dim = 5
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Training parameters")
-    parser.add_argument("--model_type", choices=['InfoGAN', 'GAN'], required=True, help="Model type to use: InfoQAN or GAN")
+    parser.add_argument("--model_type", choices=['InfoGAN', 'GAN'], required=True, help="Model type to use: InfoGAN or GAN")
     parser.add_argument("--data_num", type=int, default=1000, help="Number of data points")
-    parser.add_argument("--data_type", choices=['biased_diamond', 'biased_circle', '2box', 'bigdiamond'], required=True, help="Data type to use")
+    parser.add_argument("--data_type", choices=['biased_diamond', 'box'], default="biased_diamond", help="Data type to generate")
 
-    parser.add_argument("--seed", type=float, default=1.0, help="Seed value range")
+    parser.add_argument("--seed", type=float, default=0.5, help="Seed value range")
     parser.add_argument("--seed_dim", type=int, default=5, help="Seed dimension")
     parser.add_argument("--code_dim", type=int, default=2, help="Number of latent code space")
 
-    parser.add_argument("--G_lr", type=float, default=0.001, help="Learning rate for generator")
-    parser.add_argument("--M_lr", type=float, default=0.0003, help="Learning rate for mine")
-    parser.add_argument("--D_lr", type=float, default=0.001, help="Learning rate for discriminator")
-    parser.add_argument("--coeff", type=float, default=0.1, help="Coefficient value used for InfoQGAN (not used for QGAN)")
+    parser.add_argument("--G_lr", type=float, default=0.002, help="Learning rate for generator")
+    parser.add_argument("--M_lr", type=float, default=0.002, help="Learning rate for mine")
+    parser.add_argument("--D_lr", type=float, default=0.0005, help="Learning rate for discriminator")
+    parser.add_argument("--coeff", type=float, default=0.2, help="Coefficient value used for InfoQGAN (not used for QGAN)")
 
     parser.add_argument("--epochs", type=int, default=300, help="Number of epochs")
-    parser.add_argument("--hidden_dim", type=int, default=5, help="Number of epochs")
+    parser.add_argument("--hidden_dim", type=int, default=4, help="Number of epochs")
 
     
     args = parser.parse_args()

@@ -60,7 +60,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Training parameters")
     parser.add_argument("--model_type", choices=['InfoQGAN', 'QGAN'], required=True, help="Model type to use: InfoQGAN or QGAN")
     parser.add_argument("--data_num", type=int, default=1000, help="Number of data points")
-    parser.add_argument("--data_type", choices=['biased_diamond', 'biased_circle', '2box', 'bigdiamond'], required=True, help="Data type to use")
+    parser.add_argument("--data_type", choices=['biased_diamond', 'box'], default="biased_diamond", help="Data type to generate")
     parser.add_argument("--entangling", choices=['CNOT', 'CZ'], default='CNOT', help="Entangling gate to use")
 
     parser.add_argument("--n_qubits", type=int, default=5, help="Number of qubits")
@@ -68,11 +68,11 @@ if __name__ == "__main__":
     parser.add_argument("--n_layers", type=int, default=10, help="Number of layers for QGAN")
 
     parser.add_argument("--G_lr", type=float, default=0.001, help="Learning rate for generator")
-    parser.add_argument("--M_lr", type=float, default=0.0003, help="Learning rate for mine")
-    parser.add_argument("--D_lr", type=float, default=0.001, help="Learning rate for discriminator")
-    parser.add_argument("--coeff", type=float, default=0.1, help="Coefficient value used for InfoQGAN (not used for QGAN)")
+    parser.add_argument("--M_lr", type=float, default=0.001, help="Learning rate for mine")
+    parser.add_argument("--D_lr", type=float, default=0.0005, help="Learning rate for discriminator")
+    parser.add_argument("--coeff", type=float, default=0.2, help="Coefficient value used for InfoQGAN (not used for QGAN)")
 
-    parser.add_argument("--seed", type=float, default=1.0, help="Seed value range")
+    parser.add_argument("--seed", type=float, default=0.5, help="Seed value range")
     parser.add_argument("--epochs", type=int, default=300, help="Number of epochs")
 
     
