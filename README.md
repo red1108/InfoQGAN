@@ -14,34 +14,31 @@ The model is small enough to run without a GPU.
 
 ```bash
 INFOQGAN/
-├── data/                           # Folder for storing data-related files
-│   ├── 2D/                         # Data used for 2D training
-│   ├── IRIS/                       # Data used for IRIS data augmentation
-├── modules/                        # Folder for model components and utility code
-│   ├── Discriminator.py            # Code for the Discriminator model
-│   ├── MINE.py                     # Code for the Mutual Information Neural Estimator (MINE)
-│   ├── Generator.py                # Code defining the classical generator model
-│   ├── QGenerator.py               # Code defining the quantum generator model
-│   └── utils.py                    # Collection of utility functions
-├── savepoints/                     # Folder for saving autoencoder parameters
-├── visualize/                      # Folder for image generation and visualization code
-│   ├── tmp/                        # Temporary folder for images generated during training (ignored by Git)
-│   ├── disentanglement.ipynb 
-│   ├── mode_collapse_box.ipynb 
-│   ├── mode_collapse_diamond_timeline.ipynb
-├── .gitignore
-├── mnist_train.py                  # (Important) Python file for executing MNIST training
-├── mnist_train.ipynb               # Notebook for executing MNIST training
-├── 2D_prepare.ipynb                # Notebook for generating data for 2D experiments
-├── 2D_train.ipynb                  # Notebook for training 2D experiments
-├── 2D_run.ipynb                    # Notebook for loading the trained 2D model and generating distributions
-├── README.md                       # File containing project description and usage instructions
-├── requirements.txt                # Written for Python 3.9.
+├── data/                           # Data files
+│   ├── 2D/                         # 2D training data
+│   ├── IRIS/                       # IRIS augmentation data
+├── modules/                        # Models & utilities
+│   ├── Discriminator.py            # Discriminator model
+│   ├── MINE.py                     # Mutual info estimator (MINE)
+│   ├── Generator.py                # Classical generator
+│   ├── QGenerator.py               # Quantum generator
+│   └── utils.py                    # Utility functions
+├── .gitignore                      
+├── 2D_train.py                     # Train QGAN/InfoQGAN on 2D data
+├── 2D_train_classical.py           # Train GAN/InfoGAN on 2D data
+├── 2d_custom_shape.ipynb           # Custom 2D shapes notebook
+├── iris_train.py                   # Train QGAN/InfoQGAN on IRIS data
+├── iris_train_classical.py         # Train GAN/InfoGAN on IRIS data
+├── iris_augment_evaluation.ipynb   # Evaluate IRIS augmentation performance
+├── README.md                       # Project overview
+├── requirements.txt                # Required packages (Python 3.10)
+
+
 ```
 
 ### Requirements
 
-- Python 3.9 or higher (**This code is written based on Python 3.9**)
+- Python 3.10 or higher (**This code is written based on Python 3.10**)
 - The required packages are defined in the `requirements.txt` file.
 
 To install the dependencies, run the following command:
