@@ -6,7 +6,7 @@ InfoQGAN is the quantum version of InfoGAN. This repository contains code for tr
 
 You will need to install the appropriate packages via requirements.txt.
 
-Before getting started, create a `runs` folder in the root directory. This folder is used to store TensorBoard data and training logs, and it is ignored by git.
+Before getting started, create a `2d_runs` and `iris_runs` folder in the root directory. This folder is used to store TensorBoard data and training logs, and it is ignored by git.
 
 The model is small enough to run without a GPU.
 
