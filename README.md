@@ -46,6 +46,18 @@ To install the dependencies, run the following command:
 pip install -r requirements.txt
 ```
 
+Note on ndtest utf-8 issue
+
+The “ndtest” package may fail to install due to a UnicodeDecodeError when setup.py reads README.md with the default CP949 encoding. If you encounter this error, please do the following:
+
+1. Clone the repository locally:
+```bash
+git clone https://github.com/syrte/ndtest.git
+cd ndtest
+```
+2. Open setup.py and modify the third line to specify UTF-8 encoding:
+3. Install the package locally: `pip install .`
+
 ### How to Run
 If you want to train for 2D dataset (please make `2d_runs` folder before you run):
 ```bash
