@@ -53,3 +53,18 @@ class QGenerator:
     
     def state_dict(self):
         return self.params
+
+def QGAN_ibmq(circuit, inputs, params):
+    assert(len(inputs) == params.shape[1])
+    n_qubits = len(inputs)
+    n_layers = params.shape[0]
+
+    for i in range(n_qubits):
+        circuit.ry(inputs[i] * np.pi/2, i)
+    for l in range(n_layers):
+        for i in range(n_qubits):
+            circuit.ry(params[l, i, 0], i)
+        if l < n_layers-1:
+            for i in range(n_qubits-1):
+                circuit.cx(i, i+1)
+            circuit.cx(n_qubits-1, 0)
