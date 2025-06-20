@@ -40,7 +40,6 @@ INFOQGAN/
 
 - Python 3.10 or higher (**This code is written based on Python 3.12**)
 - The required packages are defined in the `requirements.txt` file.
-- Since the model is small enough, running it on a CPU is sufficient.
 
 
 To install the dependencies, run the following command:
