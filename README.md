@@ -38,7 +38,7 @@ INFOQGAN/
 
 ### Requirements
 
-- Python 3.10 or higher (**This code is written based on Python 3.10**)
+- Python 3.10 or higher (**This code is written based on Python 3.12**)
 - The required packages are defined in the `requirements.txt` file.
 
 To install the dependencies, run the following command:
