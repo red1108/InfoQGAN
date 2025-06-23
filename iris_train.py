@@ -83,7 +83,7 @@ if __name__ == "__main__":
 
     parser.add_argument("--G_lr", type=float, default=0.003, help="Learning rate for generator")
     parser.add_argument("--M_lr", type=float, default=0.003, help="Learning rate for mine")
-    parser.add_argument("--D_lr", type=float, default=0.0003, help="Learning rate for discriminator")
+    parser.add_argument("--D_lr", type=float, default=0.0005, help="Learning rate for discriminator")
     parser.add_argument("--coeff", type=float, default=0.04, help="Coefficient value used for InfoQGAN (not used for QGAN)")
 
     parser.add_argument("--seed", type=float, default=1.0, help="Seed value range")
