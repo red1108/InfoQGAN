@@ -77,12 +77,12 @@ if __name__ == "__main__":
     parser.add_argument("--seed_dim", type=int, default=5, help="Generator seed dimension")
     parser.add_argument("--code_dim", type=int, default=2, help="Dimension of latent code")
 
-    parser.add_argument("--G_lr", type=float, default=0.003, help="Learning rate for generator")
-    parser.add_argument("--M_lr", type=float, default=0.003, help="Learning rate for mine")
-    parser.add_argument("--D_lr", type=float, default=0.0005, help="Learning rate for discriminator")
-    parser.add_argument("--coeff", type=float, default=0.04, help="Coefficient value used for InfoGAN")
+    parser.add_argument("--G_lr", type=float, default=0.001, help="Learning rate for generator")
+    parser.add_argument("--M_lr", type=float, default=0.001, help="Learning rate for mine")
+    parser.add_argument("--D_lr", type=float, default=0.0002, help="Learning rate for discriminator")
+    parser.add_argument("--coeff", type=float, default=0.1, help="Coefficient value used for InfoGAN")
 
-    parser.add_argument("--seed", type=float, default=1.0, help="Generator seed value range")
+    parser.add_argument("--seed", type=float, default=50.0, help="Generator seed value range")
 
     parser.add_argument("--epochs", type=int, default=500, help="Number of epochs")
     parser.add_argument("--range_l", type=float, default=0.15, help="Embedding range left")
