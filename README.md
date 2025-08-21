@@ -18,6 +18,7 @@ INFOQGAN/
 │   ├── 2D/                         # 2D training data
 │   ├── IRIS/                       # IRIS augmentation data
 ├── modules/                        # Models & utilities
+│   ├── ndtest/                     # ndtest module from https://github.com/syrte/ndtest
 │   ├── Discriminator.py            # Discriminator model
 │   ├── MINE.py                     # Mutual info estimator (MINE)
 │   ├── Generator.py                # Classical generator
@@ -71,3 +72,4 @@ or
 ```bash
 python iris_train_classical.py --model_type InfoGAN
 ```
+
