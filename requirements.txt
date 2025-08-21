@@ -1,17 +1,97 @@
-torch           # PyTorch, a deep learning library for building and training neural networks
-tqdm            # Utility for displaying progress bars, useful in tracking loops and training progress
-tensorboard     # Tool for tracking, visualizing metrics, and monitoring training of models
-pennylane       # Quantum machine learning library for implementing quantum algorithms
-argparse        # Built-in library for parsing command-line arguments to configure script execution
-scipy           # Scientific computing library, providing functions like sqrtm for matrix operations
-pygments        # Syntax highlighting tool, helpful for exporting syntax-highlighted HTML code
-pandas          # Data manipulation library, essential for data analysis and preprocessing
-matplotlib      # Plotting library, commonly used for visualizing data and results from models
-ipython         # Enhanced interactive Python experience, especially within Jupyter Notebooks
-nbformat        # Library for handling notebook file format, used in reading and writing Jupyter Notebooks
-nbconvert       # Converts Jupyter Notebooks to different formats like HTML, PDF for sharing or documentation
-torchvision
-seaborn
-scikit-learn
-scipy
-./modules/ndtest   # (ndtest) Local fixed version included in repo
+absl-py==2.3.1
+appdirs==1.4.4
+asttokens==3.0.0
+astunparse==1.6.3
+attrs==25.3.0
+autograd==1.8.0
+autoray==0.7.2
+beautifulsoup4==4.13.4
+bleach==6.2.0
+cachetools==6.1.0
+certifi==2025.8.3
+charset-normalizer==3.4.3
+colorama==0.4.6
+contourpy==1.3.3
+cycler==0.12.1
+decorator==5.2.1
+defusedxml==0.7.1
+diastatic-malt==2.15.2
+executing==2.2.0
+fastjsonschema==2.21.2
+filelock==3.19.1
+fonttools==4.59.1
+fsspec==2025.7.0
+gast==0.6.0
+grpcio==1.74.0
+idna==3.10
+ipython==9.4.0
+ipython_pygments_lexers==1.1.1
+jedi==0.19.2
+Jinja2==3.1.6
+joblib==1.5.1
+jsonschema==4.25.1
+jsonschema-specifications==2025.4.1
+jupyter_client==8.6.3
+jupyter_core==5.8.1
+jupyterlab_pygments==0.3.0
+kiwisolver==1.4.9
+Markdown==3.8.2
+MarkupSafe==3.0.2
+matplotlib==3.10.5
+matplotlib-inline==0.1.7
+mistune==3.1.3
+mpmath==1.3.0
+nbclient==0.10.2
+nbconvert==7.16.6
+nbformat==5.10.4
+-e ./modules/ndtest
+networkx==3.5
+numpy==2.3.2
+packaging==25.0
+pandas==2.3.1
+pandocfilters==1.5.1
+parso==0.8.4
+pennylane==0.42.3
+pennylane_lightning==0.42.0
+pillow==11.3.0
+platformdirs==4.3.8
+prompt_toolkit==3.0.51
+protobuf==6.32.0
+pure_eval==0.2.3
+Pygments==2.19.2
+pyparsing==3.2.3
+python-dateutil==2.9.0.post0
+pytz==2025.2
+pywin32==311
+pyzmq==27.0.2
+referencing==0.36.2
+requests==2.32.5
+rpds-py==0.27.0
+rustworkx==0.17.1
+scikit-learn==1.7.1
+scipy==1.16.1
+scipy-openblas32==0.3.30.0.2
+seaborn==0.13.2
+setuptools==78.1.1
+six==1.17.0
+soupsieve==2.7
+stack-data==0.6.3
+sympy==1.14.0
+tensorboard==2.20.0
+tensorboard-data-server==0.7.2
+termcolor==3.1.0
+threadpoolctl==3.6.0
+tinycss2==1.4.0
+tomlkit==0.13.3
+torch==2.8.0
+torchvision==0.23.0
+tornado==6.5.2
+tqdm==4.67.1
+traitlets==5.14.3
+typing_extensions==4.14.1
+tzdata==2025.2
+urllib3==2.5.0
+wcwidth==0.2.13
+webencodings==0.5.1
+Werkzeug==3.1.3
+wheel==0.45.1
