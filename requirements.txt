@@ -13,4 +13,5 @@ nbconvert       # Converts Jupyter Notebooks to different formats like HTML, PDF
 torchvision
 seaborn
 scikit-learn
--e ./modules/ndtest   # (ndtest) Local fixed version included in repo
+scipy
+./modules/ndtest   # (ndtest) Local fixed version included in repo
