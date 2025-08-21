@@ -13,4 +13,4 @@ nbconvert       # Converts Jupyter Notebooks to different formats like HTML, PDF
 torchvision
 seaborn
 scikit-learn
-git+https://github.com/syrte/ndtest.git # (ndtest) For a 2D distribution equality test
+-e ./modules/ndtest   # (ndtest) Local fixed version included in repo
